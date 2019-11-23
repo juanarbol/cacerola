@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/cacerola/static/css/main.b100e6da.chunk.css",
+    "main.js": "/cacerola/static/js/main.0fb911ba.chunk.js",
+    "main.js.map": "/cacerola/static/js/main.0fb911ba.chunk.js.map",
+    "runtime-main.js": "/cacerola/static/js/runtime-main.f7e99d5b.js",
+    "runtime-main.js.map": "/cacerola/static/js/runtime-main.f7e99d5b.js.map",
+    "static/js/2.888254f9.chunk.js": "/cacerola/static/js/2.888254f9.chunk.js",
+    "static/js/2.888254f9.chunk.js.map": "/cacerola/static/js/2.888254f9.chunk.js.map",
+    "index.html": "/cacerola/index.html",
+    "precache-manifest.87b29adf594d345672b676e30aa7ee8d.js": "/cacerola/precache-manifest.87b29adf594d345672b676e30aa7ee8d.js",
+    "service-worker.js": "/cacerola/service-worker.js",
+    "static/css/main.b100e6da.chunk.css.map": "/cacerola/static/css/main.b100e6da.chunk.css.map",
+    "static/media/logo.svg": "/cacerola/static/media/logo.25bf045c.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f7e99d5b.js",
+    "static/js/2.888254f9.chunk.js",
+    "static/css/main.b100e6da.chunk.css",
+    "static/js/main.0fb911ba.chunk.js"
+  ]
+}
