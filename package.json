@@ -1,0 +1,37 @@
+{
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "name": "cacerola",
+  "version": "1.0.0",
+  "main": "null",
+  "repository": "https://github.com/juanarbol/cacerola.git",
+  "author": "<hola@juanarbol.com>",
+  "license": "ISC",
+  "private": false,
+  "scripts": {
+    "build": "NODE_ENV=production webpack --config webpack.prod.js",
+    "start": "NODE_ENV=development webpack-dev-server --config webpack.config.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/preset-react": "^7.7.4",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "file-loader": "^4.3.0",
+    "gh-pages": "^2.1.1",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.13.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "terser-webpack-plugin": "^2.2.1",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2"
+  }
+}

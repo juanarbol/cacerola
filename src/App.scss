@@ -1,0 +1,38 @@
+// Pallete
+$main-blue: #374B80;
+$second-blue: #BACEFF;
+
+.App {
+  display: flex;
+  flex-direction: column;
+  background: $main-blue;
+
+  div {
+    max-width: 100%;
+  }
+
+  button {
+    background: $second-blue;
+    color: white;
+  }
+
+  .content-container {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer {
+    min-height: 10vh;
+    background: purple;
+    display: flex;
+    flex-direction: row;
+
+    .sound {
+      background: $second-blue;
+      flex-grow: 1;
+      border: 3px solid white;
+    }
+  }
+}
