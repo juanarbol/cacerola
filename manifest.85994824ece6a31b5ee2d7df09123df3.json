@@ -1,0 +1,9 @@
+{
+  "name": "21N",
+  "short_name": "21N",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": ".",
+  "description": "21N for fun!",
+  "background_color": "#ffffff"
+}

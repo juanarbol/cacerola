@@ -1,4 +1,4 @@
-importScripts("precache-manifest.64bcd26dd09782521a48d391af3eb5a5.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("precache-manifest.9104c3b5f5464dd393ebee7b0cc6336b.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 const filesToCache = [
   '/',
@@ -11,7 +11,6 @@ const filesToCache = [
 const staticCacheName = 'cacerola';
 
 self.addEventListener('install', event => {
-  console.log('Attempting to install service worker and cache static assets');
   event.waitUntil(
     caches.open(staticCacheName)
     .then(cache => {
@@ -27,29 +26,31 @@ self.addEventListener('fetch', event => {
     caches.match(event.request)
     .then(response => {
       if (response) {
-        console.log('Found ', event.request.url, ' in cache');
         return response;
       }
-      console.log('Network request for ', event.request.url);
+
       return fetch(event.request)
         .then(response => {
-          // TODO 5 - Respond with custom 404 page
           return caches.open(staticCacheName).then(cache => {
             cache.put(event.request.url, response.clone());
             return response;
           });
         });
     }).catch(error => {
-
-      // TODO 6 - Respond with custom offline page
-
+      console.error(error)
     })
   );
 });
 
-self.addEventListener('message', event => {
-  if (event.data === 'skipWaiting') {
-    self.skipWaiting();
-  }
+self.addEventListener('activate', (e) => {
+  e.waitUntil(
+    caches.keys().then((keyList) => {
+          return Promise.all(keyList.map((key) => {
+        if(cacheName.indexOf(key) === -1) {
+          return caches.delete(key);
+        }
+      }));
+    })
+  );
 });
 
