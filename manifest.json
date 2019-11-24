@@ -18,7 +18,6 @@
       "sizes": "512x512"
     }
   ],
-  "web_accessible_resources": ["../public/sounds/*.mp3"],
   "default_locale": "es",
   "start_url": ".",
   "display": "standalone",
