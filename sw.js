@@ -1,9 +1,11 @@
-importScripts("precache-manifest.d494cfdd8afbf090f711d7c8ed9be022.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("precache-manifest.2f8bfb8113f05f645714a2f4c9719d06.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 const filesToCache = [
   '/',
-  'cara.mp3',
-  'cacerolazo.mp3',
+  'bundle-*.js',
+  'index.html',
+  '*.mp3',
+  'manifest-*.json'
 ];
 
 const staticCacheName = 'cacerola';
@@ -15,7 +17,39 @@ self.addEventListener('install', event => {
     .then(cache => {
       return cache.addAll(filesToCache);
     })
+    .catch(error => console.error('CACHING: ' + error))
   );
 });
 
+self.addEventListener('fetch', event => {
+  console.log('Fetch event for ', event.request.url);
+  event.respondWith(
+    caches.match(event.request)
+    .then(response => {
+      if (response) {
+        console.log('Found ', event.request.url, ' in cache');
+        return response;
+      }
+      console.log('Network request for ', event.request.url);
+      return fetch(event.request)
+        .then(response => {
+          // TODO 5 - Respond with custom 404 page
+          return caches.open(staticCacheName).then(cache => {
+            cache.put(event.request.url, response.clone());
+            return response;
+          });
+        });
+    }).catch(error => {
+
+      // TODO 6 - Respond with custom offline page
+
+    })
+  );
+});
+
+self.addEventListener('message', event => {
+  if (event.data === 'skipWaiting') {
+    self.skipWaiting();
+  }
+});
 
